@@ -11,7 +11,7 @@ A minimal, robust Android app for device and sensor information, featuring a cle
 - Custom app icon and branding
 
 ## Getting Started
-1. **Download the APK**: [Sensys.apk](./Sensys.apk)
+1. **Download the APK**: Go to the [Releases](https://github.com/arunkg005/Syspulse/releases) section to download the current version APK.
 2. **Install on your Android device** (you may need to allow installation from unknown sources)
 
 ## Building from Source
@@ -27,7 +27,6 @@ A minimal, robust Android app for device and sensor information, featuring a cle
 
 ## Project Structure
 - `app/` - Android app source code
-- `Sensys.apk` - Downloadable APK
 
 ## License
 This project is licensed under the MIT License.
