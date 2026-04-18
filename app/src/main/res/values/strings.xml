@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sensys</string>
+    <string name="app_name">Sensys Device & Sensor Lab</string>
     <string name="label_primary_device">Primary Device</string>
     <string name="title_device_insight">Device Insight</string>
     <string name="title_sensors">Sensor Lab</string>
