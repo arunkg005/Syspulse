@@ -1,0 +1,331 @@
+# 2. DeviceInfoActivity Design (UI + Data Mapping)
+
+## 🎯 Objective
+
+Build a **clean, dynamic screen** that shows:
+
+* Hardware info
+* Software info
+* Network info
+
+Focus:
+
+* Fast loading
+* Structured display
+* Easy to extend
+
+---
+
+# 🧩 Screen Layout Structure
+
+```text
+ScrollView
+  └── LinearLayout (Vertical)
+        ├── Device Summary Card
+        ├── Hardware Section
+        ├── Software Section
+        └── Network Section
+```
+
+---
+
+# 📱 1. Device Summary Card (Top Section)
+
+## 🎯 Purpose:
+
+Quick overview (most important info at a glance)
+
+## UI:
+
+```text
+[ 📱 Device Name ]
+Model: XYZ
+Manufacturer: ABC
+Android: 14 (API 34)
+```
+
+## Data Mapping:
+
+| Field           | Source                |
+| --------------- | --------------------- |
+| Device Name     | Build.MODEL           |
+| Manufacturer    | Build.MANUFACTURER    |
+| Android Version | Build.VERSION.RELEASE |
+| API Level       | Build.VERSION.SDK_INT |
+
+---
+
+# ⚙️ 2. Hardware Section
+
+## 🎯 Purpose:
+
+Show physical specs
+
+## UI:
+
+```text
+⚙️ Hardware
+
+CPU ABI: arm64-v8a
+Cores: 8
+
+RAM: 8GB total
+Available: 3.2GB
+
+Storage: 128GB total
+Free: 60GB
+```
+
+---
+
+## 🔧 Data Mapping
+
+### CPU Info
+
+```java
+String abi = Build.SUPPORTED_ABIS[0];
+```
+
+### CPU Cores
+
+```java
+Runtime.getRuntime().availableProcessors();
+```
+
+---
+
+### RAM Info
+
+```java
+ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+ActivityManager.MemoryInfo memInfo = new ActivityManager.MemoryInfo();
+am.getMemoryInfo(memInfo);
+
+long totalRam = memInfo.totalMem;
+long availRam = memInfo.availMem;
+```
+
+---
+
+### Storage Info
+
+```java
+StatFs stat = new StatFs(Environment.getDataDirectory().getPath());
+
+long blockSize = stat.getBlockSizeLong();
+long totalBlocks = stat.getBlockCountLong();
+long availableBlocks = stat.getAvailableBlocksLong();
+
+long totalStorage = totalBlocks * blockSize;
+long freeStorage = availableBlocks * blockSize;
+```
+
+---
+
+# 💻 3. Software Section
+
+## 🎯 Purpose:
+
+System-level details
+
+## UI:
+
+```text
+💻 Software
+
+Android Version: 14
+API Level: 34
+Kernel: 5.x.x
+Build ID: ABC123
+Security Patch: 2024-03
+```
+
+---
+
+## 🔧 Data Mapping
+
+```java
+String version = Build.VERSION.RELEASE;
+int api = Build.VERSION.SDK_INT;
+String buildId = Build.ID;
+String securityPatch = Build.VERSION.SECURITY_PATCH;
+```
+
+---
+
+### Kernel Version
+
+```java
+System.getProperty("os.version");
+```
+
+---
+
+# 📡 4. Network Section
+
+## 🎯 Purpose:
+
+Current connectivity state
+
+## UI:
+
+```text
+📡 Network
+
+Connection: Wi-Fi
+IP Address: 192.168.x.x
+Status: Connected
+```
+
+---
+
+## 🔧 Data Mapping
+
+### Connectivity Type
+
+```java
+ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+```
+
+---
+
+### Check Type
+
+```java
+if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI)
+```
+
+---
+
+### IP Address (Wi-Fi)
+
+```java
+WifiManager wm = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
+int ip = wm.getConnectionInfo().getIpAddress();
+```
+
+---
+
+# 🔄 Data Formatting Layer
+
+## 🎯 Problem:
+
+Raw values are unreadable
+
+## ✅ Solution:
+
+Convert into human-readable format
+
+---
+
+### Example: Bytes → GB
+
+```java
+String formatSize(long size) {
+    return Formatter.formatFileSize(this, size);
+}
+```
+
+---
+
+### Example: RAM Display
+
+```text
+8192000000 → 8 GB
+```
+
+---
+
+# 🔁 Data Loading Strategy
+
+## On Activity Start:
+
+```text
+onCreate()
+   ↓
+Fetch all data once
+   ↓
+Bind to UI
+```
+
+---
+
+## ⚠️ No Real-Time Updates Needed
+
+* This screen is mostly static
+* Avoid unnecessary refresh
+
+---
+
+# 🧠 UI Behavior Rules
+
+1. Use **section headers** (Hardware, Software, Network)
+2. Keep **text aligned and readable**
+3. Avoid clutter (no raw dumps)
+4. Show fallback:
+
+```text
+"Not Available"
+```
+
+---
+
+# 🧩 Reusable UI Component (Recommended)
+
+## Info Row Pattern:
+
+```text
+[ Label ]     [ Value ]
+RAM           8 GB
+Storage       128 GB
+```
+
+---
+
+# ⚠️ Edge Cases Handling
+
+| Case                 | Solution             |
+| -------------------- | -------------------- |
+| Null values          | Show "Not Available" |
+| Restricted APIs      | Skip gracefully      |
+| Old Android versions | Add version checks   |
+
+---
+
+# 🔥 Minimal Code Flow Summary
+
+```text
+onCreate():
+   ↓
+collectDeviceInfo()
+collectHardwareInfo()
+collectSoftwareInfo()
+collectNetworkInfo()
+   ↓
+updateUI()
+```
+
+---
+
+# 🚀 Output Quality Target
+
+User should:
+
+* Instantly understand device specs
+* Not see raw/unformatted data
+* Not feel overwhelmed
+
+---
+
+# 📌 Final Note
+
+This activity is:
+
+* Easy to implement
+* High perceived value
+* Foundation for report generation
+
+---
+
+**Next:** Design #3 → Sensor System (Full module + per-sensor plan)

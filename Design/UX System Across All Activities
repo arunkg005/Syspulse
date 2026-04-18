@@ -1,0 +1,332 @@
+# 5. Consistent UI/UX System (Across All Activities)
+
+## 🎯 Objective
+
+Create a **simple, consistent, and usable UI system** for:
+
+* MainActivity (Navigation)
+* DeviceInfoActivity (Static Info)
+* SensorLabActivity (Dynamic Interaction)
+* ReportActivity (Readable Output)
+
+Focus:
+
+> Clarity > Fancy design
+> Consistency > Complexity
+> Function > Decoration
+
+---
+
+# 🧠 Core Design Principles
+
+1. **Same layout logic everywhere**
+2. **Predictable navigation**
+3. **Readable information hierarchy**
+4. **Minimal visual noise**
+5. **Fast interaction (no lag, no clutter)**
+
+---
+
+# 🎨 1. Global Layout System
+
+## 📱 Base Layout Pattern
+
+```text id="9b7x2c"
+Top Bar (Title)
+↓
+Content Area (Scrollable)
+↓
+Bottom Action / Buttons (optional)
+```
+
+---
+
+## 🔹 Components Used Everywhere
+
+* `TextView` → Labels & values
+* `CardView` → Grouped sections
+* `RecyclerView` → Lists (sensors)
+* `ScrollView` → Long content
+* `Button` → Actions
+
+---
+
+# 🧩 2. Visual Hierarchy (Critical)
+
+## 🔹 Text Levels
+
+```text id="c8x5qn"
+Title → Large, bold
+Section Header → Medium, bold
+Label → Normal
+Value → Slightly highlighted
+```
+
+---
+
+## 🔹 Example
+
+```text id="f0l8ks"
+⚙️ Hardware
+
+RAM        8 GB
+Storage    128 GB
+```
+
+---
+
+# 🎨 3. Color System (Minimal)
+
+## 🎯 Keep it simple
+
+| Element     | Color                         |
+| ----------- | ----------------------------- |
+| Background  | White / Dark (system default) |
+| Text        | Black / White                 |
+| Accent      | Single color (blue/green)     |
+| Status Good | Green                         |
+| Warning     | Orange                        |
+| Error       | Red                           |
+
+---
+
+## ⚠️ Rule
+
+* Don’t use too many colors
+* Color = meaning, not decoration
+
+---
+
+# 🧭 4. Navigation Consistency
+
+## 🔹 Back Behavior
+
+* Always returns to previous screen
+* No custom back logic
+
+---
+
+## 🔹 Entry Points
+
+```text id="8lqg2r"
+MainActivity → All modules
+```
+
+---
+
+## 🔹 No Deep Nesting
+
+* Max 2 levels:
+
+```text id="pt4z0o"
+Main → List → Detail
+```
+
+---
+
+# 📱 5. Activity-wise UI Behavior
+
+---
+
+## 🏠 MainActivity
+
+### Layout:
+
+```text id="p2x7dr"
+[ App Title ]
+
+[ Device Summary Card ]
+
+[ Button: Device Info ]
+[ Button: Sensors ]
+[ Button: Generate Report ]
+```
+
+### Behavior:
+
+* Instant navigation
+* No heavy data loading
+
+---
+
+## 📊 DeviceInfoActivity
+
+### Layout:
+
+```text id="0tq1mn"
+ScrollView
+
+[ Summary Card ]
+[ Hardware Card ]
+[ Software Card ]
+[ Network Card ]
+```
+
+### Behavior:
+
+* Static data
+* No animation needed
+
+---
+
+## 🎮 SensorLabActivity
+
+### Layout:
+
+```text id="7g8d2y"
+RecyclerView (Sensor List)
+```
+
+---
+
+## 🎯 SensorDetailActivity
+
+### Layout:
+
+```text id="8m2kqz"
+[ Sensor Name ]
+
+[ Visualization Area ]
+
+[ Values ]
+[ Status Text ]
+```
+
+---
+
+### Behavior:
+
+* Real-time updates
+* Smooth refresh
+* No UI freezing
+
+---
+
+## 📄 ReportActivity
+
+### Layout:
+
+```text id="k1s9ep"
+ScrollView
+
+[ Generate Button ]
+
+[ Report Text Area ]
+
+[ Share Button ]
+```
+
+---
+
+### Behavior:
+
+* Show loading state
+* Display formatted report
+* Allow copy/share
+
+---
+
+# 🔄 6. Interaction Patterns
+
+## 🔹 Feedback
+
+| Action            | Feedback         |
+| ----------------- | ---------------- |
+| Button click      | Ripple effect    |
+| Sensor active     | Live update      |
+| Report generating | Loading text     |
+| Test step         | Instruction text |
+
+---
+
+## 🔹 Loading State
+
+```text id="yz9n3f"
+"Generating Report..."
+```
+
+---
+
+# 🧠 7. Consistency Rules
+
+1. Same padding everywhere (16dp recommended)
+2. Same card style everywhere
+3. Same font sizes across screens
+4. Same button style across app
+
+---
+
+# 📏 8. Spacing System
+
+```text id="q4w8zt"
+Section gap → 16dp
+Element gap → 8dp
+Card padding → 16dp
+```
+
+---
+
+# 🔤 9. Text Style Guidelines
+
+* Avoid long paragraphs
+* Use short lines
+* Align labels and values
+* Use icons sparingly
+
+---
+
+# ⚠️ 10. UX Mistakes to Avoid
+
+❌ Too many animations
+❌ Raw data dumps
+❌ Inconsistent layouts
+❌ Overcrowded screens
+
+---
+
+# 🔥 11. What Makes This UI Strong
+
+* Easy to scan
+* Easy to navigate
+* Works for all modules
+* Feels like one unified app
+
+---
+
+# 📌 Final UX Flow
+
+```text id="l9z2xp"
+User opens app
+   ↓
+Sees simple options
+   ↓
+Navigates easily
+   ↓
+Understands data instantly
+   ↓
+Generates report without confusion
+```
+
+---
+
+# 🚀 Final Outcome
+
+Even with basic UI components:
+
+* App feels structured
+* App feels reliable
+* App feels complete
+
+---
+
+## 🧠 Final Insight
+
+A good MVP UI is not:
+
+> “beautiful”
+
+It is:
+
+> **predictable, readable, and fast**
+
+---

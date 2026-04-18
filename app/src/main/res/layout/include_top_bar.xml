@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/topBarContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="@color/surface_card"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/outline_subtle"
+    app:strokeWidth="1dp">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:minHeight="72dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="12dp"
+        app:navigationIconTint="@color/ink_primary"
+        app:titleTextAppearance="@style/TextAppearance.Sensys.TopBarTitle"
+        app:titleTextColor="@color/ink_primary"
+        app:title="@string/app_name">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_theme_toggle_container"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingEnd="6dp">
+
+            <TextView
+                android:id="@+id/themeModeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/theme_light"
+                android:textColor="@color/ink_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/themeModeSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:contentDescription="@string/theme_switch_content_description"
+                android:showText="false"
+                android:switchMinWidth="44dp"
+                android:switchPadding="0dp"
+                app:thumbTint="@color/theme_switch_thumb"
+                app:trackTint="@color/theme_switch_track" />
+        </LinearLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
+</com.google.android.material.card.MaterialCardView>

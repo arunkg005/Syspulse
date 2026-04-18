@@ -1,0 +1,377 @@
+# 3. Sensor System Design (Full Module + Per-Sensor Plan)
+
+## 🎯 Objective
+
+Build a **functional, real-time sensor module** that:
+
+* Lists all available sensors
+* Streams live data
+* Provides **basic visualization + simple interpretation**
+
+No overdesign. Focus:
+
+> Reliable data + clear visualization + controlled lifecycle
+
+---
+
+# 🏗️ Module Architecture
+
+```text id="qz9x1l"
+SensorLabActivity
+    ├── Sensor List (RecyclerView)
+    └── SensorDetailActivity (Dynamic UI per sensor)
+```
+
+---
+
+# 📱 1. SensorLabActivity (Sensor List Screen)
+
+## 🎯 Purpose:
+
+* Discover and display all available sensors
+
+---
+
+## 🔧 Data Source
+
+```java id="nqf8w2"
+SensorManager sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+List<Sensor> sensorList = sm.getSensorList(Sensor.TYPE_ALL);
+```
+
+---
+
+## 🧩 UI Structure
+
+```text id="2p3zye"
+RecyclerView
+   ├── Accelerometer
+   ├── Gyroscope
+   ├── Light
+   ├── Proximity
+   ├── ...
+```
+
+---
+
+## 📌 Each Item Shows:
+
+* Sensor Name
+* Sensor Type
+* Vendor (optional)
+
+---
+
+## 🔁 On Click Flow
+
+```text id="r1z9ak"
+User taps sensor
+   ↓
+Open SensorDetailActivity
+   ↓
+Pass sensor TYPE via Intent
+```
+
+```java id="a2l4jf"
+intent.putExtra("sensor_type", sensor.getType());
+```
+
+---
+
+# 🎮 2. SensorDetailActivity (Core Engine)
+
+## 🎯 Purpose:
+
+* Handle **real-time data + visualization**
+
+---
+
+## 🔧 Setup
+
+```java id="f9l2kd"
+Sensor sensor = sm.getDefaultSensor(sensorType);
+```
+
+---
+
+## 🎧 Listener
+
+```java id="p0x3mz"
+SensorEventListener listener = new SensorEventListener() {
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        updateUI(event.values);
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
+};
+```
+
+---
+
+## 🔁 Lifecycle Handling
+
+```text id="t8u2df"
+onResume() → registerListener
+onPause() → unregisterListener
+```
+
+---
+
+# 🧩 UI Layout (Dynamic)
+
+```text id="7v4cjm"
+[ Sensor Name ]
+
+[ Visualization Area ]
+
+[ Values ]
+X: ...
+Y: ...
+Z: ...
+
+[ Status Text ]
+```
+
+---
+
+# 📊 Visualization Strategy (MVP Level)
+
+Keep it simple:
+
+* Text values (mandatory)
+* Basic visual (optional but impactful)
+
+---
+
+# 🎯 3. Per-Sensor Plan (IMPORTANT)
+
+---
+
+## 🔵 A. Motion Sensors
+
+### 1. Accelerometer
+
+* Values: X, Y, Z
+* Visualization:
+
+  * Moving dot (based on X/Y)
+* Interpretation:
+
+  * High values → "Movement detected"
+  * Near zero → "Stable"
+
+---
+
+### 2. Gyroscope
+
+* Values: X, Y, Z rotation
+* Visualization:
+
+  * Rotation indicator (text-based is fine for MVP)
+* Interpretation:
+
+  * Rapid change → "Rotating"
+
+---
+
+### 3. Rotation Vector (if available)
+
+* Values: Orientation data
+* Visualization:
+
+  * Orientation text (Pitch / Roll / Yaw approx)
+* Interpretation:
+
+  * "Device tilted / flat"
+
+---
+
+## 🌍 B. Environmental Sensors
+
+---
+
+### 4. Light Sensor
+
+* Value: Lux
+* Visualization:
+
+  * Background brightness change
+* Interpretation:
+
+  * <50 → Dark
+  * 50–500 → Normal
+  * > 500 → Bright
+
+---
+
+### 5. Proximity Sensor
+
+* Value: distance
+* Visualization:
+
+  * Screen overlay (black/clear)
+* Interpretation:
+
+  * Near / Far
+
+---
+
+### 6. Pressure (Barometer)
+
+* Value: hPa
+* Visualization:
+
+  * Text + simple progress bar
+* Interpretation:
+
+  * Show raw only (MVP)
+
+---
+
+## 📍 C. Position / Activity Sensors
+
+---
+
+### 7. Step Counter
+
+* Value: steps
+* Visualization:
+
+  * Counter text
+* Interpretation:
+
+  * "Walking activity detected"
+
+---
+
+### 8. Step Detector
+
+* Event-based
+* Visualization:
+
+  * Flash or increment
+* Interpretation:
+
+  * "Step detected"
+
+---
+
+## 🧠 D. Virtual Sensors
+
+---
+
+### 9. Linear Acceleration
+
+* Values: X, Y, Z
+* Interpretation:
+
+  * Motion without gravity
+
+---
+
+### 10. Gravity Sensor
+
+* Values: X, Y, Z
+* Visualization:
+
+  * Direction arrow (optional)
+
+---
+
+# ⚠️ 4. Unsupported / Missing Sensors
+
+## Handling Strategy
+
+```text id="9rfk3t"
+if (sensor == null)
+   → Show "Not Available"
+```
+
+---
+
+# ⚡ 5. Performance Rules
+
+* Use:
+
+```java id="8l1mdx"
+SensorManager.SENSOR_DELAY_NORMAL
+```
+
+* Avoid:
+
+  * High-frequency updates (battery drain)
+
+---
+
+# 🧠 6. Data Processing (Minimal)
+
+## Optional Smoothing
+
+```text id="2y9hjq"
+filtered = alpha * new + (1-alpha) * old
+```
+
+👉 Only if values are too noisy
+
+---
+
+# 🔄 7. Data Flow
+
+```text id="x3h2bd"
+Sensor → SensorEvent → Values → UI Update → Interpretation
+```
+
+---
+
+# 🧩 8. Code Flow Summary
+
+```text id="r6c1ok"
+onCreate():
+   get sensor type
+   initialize UI
+
+onResume():
+   register listener
+
+onSensorChanged():
+   update values
+   update visualization
+   update interpretation
+
+onPause():
+   unregister listener
+```
+
+---
+
+# ⚠️ 9. MVP Constraints
+
+* No advanced graphics (no OpenGL)
+* No ML-based interpretation
+* No background tracking
+* No data storage
+
+---
+
+# 🔥 10. What Makes This Module Solid
+
+* Works on most devices
+* Handles missing sensors
+* Clear structure (List → Detail)
+* Extensible for future upgrades
+
+---
+
+# 📌 Final Outcome
+
+User can:
+
+* See all available sensors
+* Tap and explore each
+* Understand behavior in real-time
+
+---
+
+**Next:** Design #4 → Report Generation + Logging Workflow

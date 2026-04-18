@@ -1,0 +1,128 @@
+<resources>
+    <string name="app_name">Sensys</string>
+    <string name="label_primary_device">Primary Device</string>
+    <string name="title_device_insight">Device Insight</string>
+    <string name="title_sensors">Sensor Lab</string>
+    <string name="title_sensor_detail">Sensor Detail</string>
+    <string name="title_device_health_report">Device Health Report</string>
+    <string name="title_diagnostics">Guided Diagnostics</string>
+
+    <string name="nav_info">Info</string>
+    <string name="nav_lab">Lab</string>
+    <string name="nav_report">Report</string>
+
+    <string name="section_hardware">Hardware</string>
+    <string name="section_software">Software</string>
+    <string name="section_memory_storage">Memory &amp; Storage</string>
+    <string name="section_battery">Battery</string>
+    <string name="section_network">Network</string>
+
+    <string name="label_manufacturer">Manufacturer</string>
+    <string name="label_model">Model</string>
+    <string name="label_board">Board</string>
+    <string name="label_cpu">CPU ABI</string>
+    <string name="label_version">Version</string>
+    <string name="label_api_level">API Level</string>
+    <string name="label_security_patch">Security Patch</string>
+    <string name="label_hardware_core">Hardware Core</string>
+    <string name="label_ram_total">Total RAM</string>
+    <string name="label_ram_available">Available RAM</string>
+    <string name="label_storage_total">Storage Total</string>
+    <string name="label_storage_free">Storage Free</string>
+    <string name="label_battery_level">Battery Level</string>
+    <string name="label_battery_status">Battery Status</string>
+    <string name="label_battery_health">Battery Health</string>
+    <string name="label_battery_temperature">Battery Temperature</string>
+    <string name="label_network_status">Network Status</string>
+    <string name="label_network_type">Network Type</string>
+    <string name="label_ip_address">IP Address</string>
+    <string name="label_network_detail">Network Detail</string>
+
+    <string name="btn_open_sensor_lab">Open Sensor Lab</string>
+    <string name="btn_open_report">Open Report</string>
+    <string name="btn_generate_report">Generate Report</string>
+    <string name="btn_run_guided_tests">Run Guided Tests</string>
+    <string name="btn_export_share_report">Export or Share Last Report</string>
+    <string name="btn_cycle_color">Cycle Color</string>
+    <string name="btn_reset_grid">Reset Grid</string>
+    <string name="btn_play_tone">Play Tone</string>
+    <string name="btn_reset_keys">Reset Keys</string>
+    <string name="btn_mark_passed">Pass</string>
+    <string name="btn_mark_issue">Issue</string>
+
+    <string name="sensor_lab_intro_title">Interactive Sensor Lab</string>
+    <string name="sensor_lab_intro_body">Browse every available sensor, then open a live detail view to inspect motion, environment, and activity readings.</string>
+    <string name="empty_sensor_state">No sensors were reported by this device.</string>
+    <string name="sensor_unavailable">Sensor Not Available</string>
+    <string name="sensor_unavailable_hint">This sensor could not be loaded on the current device.</string>
+    <string name="sensor_waiting_data">Waiting for live data</string>
+    <string name="sensor_live_hint">Live values update while the detail screen is active.</string>
+
+    <string name="report_initial_status">Generate a new device health report.</string>
+    <string name="label_recent_reports">Recent Reports</string>
+    <string name="report_generation_failed">Generation failed</string>
+    <string name="report_generated_success">Report generated successfully</string>
+    <string name="report_save_failed">Failed to save report: %1$s</string>
+    <string name="no_app_text_files">No app found to open text files</string>
+    <string name="share_report">Share Report</string>
+    <string name="report_initial_text">The generated report will appear here after system, sensor, and guided diagnostic data are collected.</string>
+    <string name="report_generating">Generating report...</string>
+    <string name="report_collecting">Collecting system snapshot and sensor data...</string>
+    <string name="share_report_title">Share Report</string>
+    <string name="share_report_text">Device Health Report from Sensys.</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_switch_content_description">Theme switch placeholder</string>
+    <string name="theme_dark_mode_coming_soon">Dark mode is on hold for now. Light mode stays active.</string>
+    <string name="theme_light_mode_active">Light mode is active.</string>
+
+    <string name="test_display_status">Cycle the colors and look for dead pixels, tint shifts, or uneven brightness.</string>
+    <string name="test_touch_status">Tap all six zones to confirm touch coverage across the panel.</string>
+    <string name="test_audio_status">Play the speaker test tone, then confirm it sounds clear.</string>
+    <string name="test_audio_played">Tone played. Mark the result after listening.</string>
+    <string name="test_audio_hint">If the device is muted, raise media volume first and replay the tone.</string>
+    <string name="test_buttons_status">Press both volume keys while this screen is active.</string>
+    <string name="test_buttons_ready">Both keys were detected. You can pass this test now.</string>
+    <string name="test_buttons_up_label">Volume Up</string>
+    <string name="test_buttons_down_label">Volume Down</string>
+    <string name="key_detected">Detected</string>
+    <string name="key_waiting">Waiting</string>
+
+    <string name="waiting">Waiting</string>
+    <string name="not_available">Not Available</string>
+    <string name="not_connected">Not Connected</string>
+    <string name="connected">Connected</string>
+
+    <string name="format_label_value">%1$s: %2$s</string>
+    <string name="format_summary_subtitle">Android %1$s | API %2$d | %3$s</string>
+    <string name="format_summary_status">%1$s battery | %2$d sensors detected</string>
+    <string name="format_summary_status_detail">%1$s active on light theme</string>
+    <string name="format_sensor_count">%1$d sensors discovered</string>
+    <string name="format_sensor_version">Sensor version %1$d</string>
+    <string name="format_sensor_meta">%1$s | %2$s</string>
+    <string name="format_sensor_accuracy">Accuracy: %1$s</string>
+    <string name="format_axis_value">%1$s: %2$s</string>
+    <string name="format_primary_value">Primary value: %1$s</string>
+    <string name="format_heading_value">Heading %1$.1f deg</string>
+    <string name="format_test_color">Current color: %1$s</string>
+    <string name="format_touch_progress">%1$d of %2$d touch zones activated</string>
+    <string name="format_key_status">%1$s: %2$s</string>
+    <string name="format_test_summary">Diagnostics: %1$s</string>
+    <string name="format_report_status">%1$s | %2$d sensor snapshots</string>
+    <string name="format_percentage_value">%1$d%%</string>
+    <string name="report_export_failed">Export failed: %1$s</string>
+    <string name="format_motion_magnitude">motion %.2f</string>
+    <string name="format_lux_value">%.0f lx</string>
+    <string name="format_cm_value">%.2f cm</string>
+    <string name="format_hpa_value">%.1f hPa</string>
+    <string name="label_near">NEAR</string>
+    <string name="label_far">FAR</string>
+    <string name="label_total_steps">total steps</string>
+    <string name="label_step">STEP</string>
+    <string name="label_ready">READY</string>
+    <string name="label_motion_map">X/Y motion map</string>
+    <string name="format_temp_value">%.1f °C</string>
+    <string name="format_humidity_value">%.1f %%</string>
+
+    <string name="btn_view">View</string>
+    <string name="btn_share">Share</string>
+</resources>

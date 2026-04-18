@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Device Lab - Info</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#006d43",
+                        "background": "#f5faf7",
+                        "on-surface": "#171d1b",
+                        "surface": "#f5faf7",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#eff7f2",
+                        "surface-container": "#e6f2eb",
+                        "on-surface-variant": "#404943",
+                        "outline": "#707973"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-4 h-16 w-full dark:bg-[#1A1C1E]" style="background-color: #f5faf7;">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#ebeef3] dark:hover:bg-[#3d3f43] transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#006d43] dark:text-[#f7f7fa]" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold text-[#171d1b] dark:text-[#f7f7fa] font-['Inter']">Device Lab</h1>
+</div>
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-lowest shadow-sm hover:bg-[#ebeef3] dark:hover:bg-[#3d3f43] transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#006d43] dark:text-[#f7f7fa]" data-icon="light_mode">light_mode</span>
+</button>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto space-y-8">
+<!-- Hero Header Card -->
+<section class="bg-surface-container-lowest p-8 rounded-xl space-y-2">
+<div class="space-y-1">
+<span class="text-xs font-bold tracking-widest text-on-surface-variant uppercase">Primary Device</span>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface">Pixel 7 Pro</h2>
+</div>
+<div class="flex items-center gap-6 pt-4">
+<div class="space-y-0.5">
+<p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">Manufacturer</p>
+<p class="text-sm font-semibold text-primary">Google</p>
+</div>
+<div class="h-8 w-[1px] bg-surface-container"></div>
+<div class="space-y-0.5">
+<p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">OS Version</p>
+<p class="text-sm font-semibold text-primary">Android 13</p>
+</div>
+<div class="h-8 w-[1px] bg-surface-container"></div>
+<div class="space-y-0.5">
+<p class="text-[10px] text-on-surface-variant font-medium uppercase tracking-wider">API Level</p>
+<p class="text-sm font-semibold text-primary">33</p>
+</div>
+</div>
+</section>
+<!-- Hardware & Software Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Hardware Card -->
+<section class="bg-surface-container-low p-6 rounded-xl space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-on-surface">Hardware</h3>
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="developer_board">developer_board</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-surface-variant pb-2">
+<span class="text-xs text-on-surface-variant font-medium uppercase">Manufacturer</span>
+<span class="text-sm font-semibold">Google</span>
+</div>
+<div class="flex justify-between items-end border-b border-surface-variant pb-2">
+<span class="text-xs text-on-surface-variant font-medium uppercase">Model</span>
+<span class="text-sm font-semibold">GP4BC</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-xs text-on-surface-variant font-medium uppercase">Board</span>
+<span class="text-sm font-semibold">cheetah</span>
+</div>
+</div>
+</section>
+<!-- Software Card -->
+<section class="bg-surface-container-low p-6 rounded-xl space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-on-surface">Software</h3>
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="terminal">terminal</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-surface-variant pb-2">
+<span class="text-xs text-on-surface-variant font-medium uppercase">Version</span>
+<span class="text-sm font-semibold">Android 13.0</span>
+</div>
+<div class="flex justify-between items-end border-b border-surface-variant pb-2">
+<span class="text-xs text-on-surface-variant font-medium uppercase">API Level</span>
+<span class="text-sm font-semibold">33</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-xs text-on-surface-variant font-medium uppercase">Security Patch</span>
+<span class="text-sm font-semibold">2023-05-05</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Memory Card -->
+<section class="bg-surface-container-lowest p-6 rounded-xl space-y-8">
+<h3 class="text-lg font-bold text-on-surface">Memory &amp; Storage</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- RAM -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">RAM Usage</span>
+<span class="text-sm font-semibold">12 GB Total</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[33%] rounded-full"></div>
+</div>
+<p class="text-xs text-on-surface-variant">4 GB Available of 12 GB</p>
+</div>
+<!-- Storage -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Storage</span>
+<span class="text-sm font-semibold">256 GB Total</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[57%] rounded-full"></div>
+</div>
+<p class="text-xs text-on-surface-variant">110 GB Free of 256 GB</p>
+</div>
+</div>
+</section>
+<!-- Connectivity & Power Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Battery Card -->
+<section class="bg-surface-container-low p-6 rounded-xl space-y-6">
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="battery_5_bar">battery_5_bar</span>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Battery</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-black">85%</span>
+<span class="text-xs text-on-surface-variant font-medium">Not Charging</span>
+</div>
+</div>
+</section>
+<!-- Network Card -->
+<section class="bg-surface-container-low p-6 rounded-xl space-y-6">
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="wifi">wifi</span>
+</div>
+<div class="space-y-1">
+<p class="text-xs text-on-surface-variant font-bold uppercase tracking-wider">Network</p>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-black">Connected</span>
+<span class="text-xs text-on-surface-variant font-medium">Pixel_Net_5G</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-16 pb-safe px-6 dark:bg-[#1A1C1E]" style="background-color: #f5faf7;">
+<a class="flex flex-col items-center justify-center bg-[#e6f2eb] dark:bg-[#2c2e31] text-[#006d43] dark:text-[#ffffff] rounded-lg px-4 py-1 opacity-80 duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="info" style="font-variation-settings: 'FILL' 1;">info</span>
+<span class="font-['Inter'] text-[12px] font-medium">Info</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#596066] dark:text-[#acb3b9] px-4 py-1 hover:bg-[#f2f3f7] dark:hover:bg-[#2c2e31] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="font-['Inter'] text-[12px] font-medium">Lab</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#596066] dark:text-[#acb3b9] px-4 py-1 hover:bg-[#f2f3f7] dark:hover:bg-[#2c2e31] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-['Inter'] text-[12px] font-medium">Report</span>
+</a>
+</nav>
+</body></html>

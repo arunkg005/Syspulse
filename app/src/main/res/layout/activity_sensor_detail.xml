@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface_base"
+    tools:context=".SensorDetailActivity">
+
+    <include layout="@layout/include_top_bar" />
+
+    <ScrollView
+        android:id="@+id/detailScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/surface_section"
+                app:cardCornerRadius="20dp"
+                app:strokeColor="@color/outline_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:id="@+id/sensorNameView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ink_primary"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        tools:text="BMI323 Accelerometer" />
+
+                    <TextView
+                        android:id="@+id/sensorTypeView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textColor="@color/brand_secondary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="Accelerometer | Motion" />
+
+                    <TextView
+                        android:id="@+id/sensorMetaView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/ink_secondary"
+                        tools:text="Vendor Google | Range 39.2 | Power 0.10 mA" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:id="@+id/sensorDetailCardsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@color/surface_card"
+                    app:cardCornerRadius="20dp"
+                    app:strokeColor="@color/outline_subtle"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/title_sensor_detail"
+                            android:textColor="@color/ink_primary"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <com.example.sensys.view.SensorVisualizationView
+                            android:id="@+id/sensorVisualizationView"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:layout_marginTop="14dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    app:cardBackgroundColor="@color/surface_section"
+                    app:cardCornerRadius="20dp"
+                    app:strokeColor="@color/outline_subtle"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:id="@+id/primaryValueView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/ink_primary"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:text="Primary value: 2.73" />
+
+                        <TextView
+                            android:id="@+id/axisXView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:textColor="@color/ink_secondary"
+                            tools:text="X: 2.73" />
+
+                        <TextView
+                            android:id="@+id/axisYView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:textColor="@color/ink_secondary"
+                            tools:text="Y: 1.34" />
+
+                        <TextView
+                            android:id="@+id/axisZView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:textColor="@color/ink_secondary"
+                            tools:text="Z: 8.92" />
+
+                        <TextView
+                            android:id="@+id/accuracyView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:textColor="@color/brand_secondary"
+                            android:textStyle="bold"
+                            tools:text="Accuracy: High" />
+
+                        <TextView
+                            android:id="@+id/statusView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:textColor="@color/ink_secondary"
+                            tools:text="x 2.73, y 1.34, z 8.92 | magnitude 9.42 m/s2" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

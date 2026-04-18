@@ -1,0 +1,26 @@
+<resources>
+    <style name="Base.Theme.Sensys" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/brand_primary_soft</item>
+        <item name="colorSecondary">@color/brand_secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSurface">@color/surface_base</item>
+        <item name="colorOnSurface">@color/ink_primary</item>
+        <item name="colorSurfaceVariant">@color/surface_muted</item>
+        <item name="colorOutline">@color/outline_subtle</item>
+        <item name="android:windowBackground">@color/surface_base</item>
+        <item name="android:statusBarColor">@color/surface_base</item>
+        <item name="android:navigationBarColor">@color/surface_base</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="TextAppearance.Sensys.TopBarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/ink_primary</item>
+    </style>
+
+    <style name="Theme.Sensys" parent="Base.Theme.Sensys" />
+</resources>
