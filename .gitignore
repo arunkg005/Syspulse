@@ -1,33 +1,67 @@
-*.iml
-.idea/
+# =========================
+# Gradle / Build
+# =========================
 .gradle/
 build/
 app/build/
-captures/
-output.json
+*/build/
+gradle/
+
+# =========================
+# Local Configuration
+# =========================
 local.properties
-*.keystore
-*.jks
-*.iml
-.gradle/
+
+# =========================
+# IDE (Android Studio / IntelliJ)
+# =========================
 .idea/
-build/
-app/build/
-captures/
-output.json
-local.properties
-*.keystore
-*.jks
+*.iml
+*.iws
+*.ipr
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# OS / System Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# APK / Generated Outputs
+# =========================
 *.apk
-*.ap_ 
+*.aab
+*.ap_
 *.dex
 *.class
-*.log
+
+# =========================
+# Temporary / Cache
+# =========================
+.externalNativeBuild/
+.cxx/
 *.tmp
-*.bak
-*.swp
 *.swo
-*.DS_Store
+
+# =========================
+# Keystore (IMPORTANT)
+# =========================
+*.jks
+*.keystore
+
+# =========================
+# Miscellaneous
+# =========================
 *.orig
 *.rej
 *.zip
@@ -43,40 +77,5 @@ local.properties
 *.sqlite
 *.sublime-workspace
 *.sublime-project
-.vscode/
 Sensys_logo.svg
 Sensys_logo.png
-Design/
-gradle/
-stitch_minimal_device_inspector/
-README.md
-*.ap_ 
-*.dex
-*.class
-*.log
-*.tmp
-*.bak
-*.swp
-*.swo
-*.DS_Store
-*.orig
-*.rej
-*.zip
-*.tar.gz
-*.tar
-*.7z
-*.rar
-*.gz
-*.tgz
-*.lock
-*.bin
-*.db
-*.sqlite
-*.sublime-workspace
-*.sublime-project
-.vscode/
-Sensys_logo.svg
-Design/
-gradle/
-stitch_minimal_device_inspector/
-release/Sensys.apk
