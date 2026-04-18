@@ -8,6 +8,7 @@ output.json
 local.properties
 *.keystore
 *.jks
+!release/Sensys.apk
 *.apk
 *.ap_ 
 *.dex
